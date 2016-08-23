@@ -7,15 +7,10 @@ function start(route,handle){
 		var pathname=url.parse(request.url).pathname;
 		console.log('request for '+pathname+' received');
 
-		route(handle,pathname);
+		route(handle,pathname,response);
 
 
-		// 发送 HTTP 头部  HTTP 状态值: 200 : OK 内容类型: text/plain 
-		response.writeHead(200, {'Content-Type': 'text/plain'});
-		// 发送响应数据 "Hello World"
-		response.write('hello world\n');
-		//response.end('Hello World\n');
-		response.end();
+	
 	}
 
 	http.createServer(onRequest).listen(8888);
