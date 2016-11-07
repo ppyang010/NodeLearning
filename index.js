@@ -1,3 +1,4 @@
+//启动程序
 var server =require("./server");
 var router=require("./route");
 var requestHandlers=require("./requestHandlers");
