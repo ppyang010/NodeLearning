@@ -7,15 +7,15 @@ function start(route,handle){
 		var pathname=url.parse(request.url).pathname;
         var postData="";
 		console.log('request for '+pathname+' received');
-        request.setEncoding("UTF-8");
-        request.on("data",(postDataChunk)=>{
-            postData += postDataChunk;
-            console.log("Received POST data chunk '"+
-            postDataChunk +"'.");
-        });
-        request.on("end",()=>{
-            route(handle,pathname,response,postData);
-        });
+        // request.setEncoding("UTF-8");
+        // request.on("data",(postDataChunk)=>{
+        //     postData += postDataChunk;
+        //     console.log("Received POST data chunk '"+
+        //     postDataChunk +"'.");
+        // });
+        // request.on("end",()=>{
+            route(handle,pathname,response,request);
+        // });
 	}
 
 	http.createServer(onRequest).listen(8888);
